@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTK Safety | Metecan Kaya — HSE Specialist Energietransitie</title>
+<meta name="description" content="Metecan Kaya — HSE Specialist voor waterstof, CCS en energie-infrastructuur. 5M+ LTI-vrije uren. Shell, Porthos, Ballast Nedam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080B12;--bg2:#0E1219;--card:rgba(20,25,36,.7);--card-h:rgba(30,38,55,.8);
+  --acc:#F59E0B;--acc2:#F97316;--cyan:#06B6D4;--em:#10B981;
+  --acc-dim:rgba(245,158,11,.1);--acc-glow:rgba(245,158,11,.35);
+  --t1:#F1F5F9;--t2:#94A3B8;--t3:#64748B;
+  --bdr:rgba(148,163,184,.08);--bdr-g:rgba(245,158,11,.15);
+  --green:#22C55E;
+  --fd:'Bebas Neue',sans-serif;--fb:'DM Sans',sans-serif;
+  --g1:linear-gradient(135deg,#F59E0B,#F97316,#EF4444);
+  --g2:linear-gradient(135deg,#06B6D4,#10B981);
+  --g3:linear-gradient(135deg,#F59E0B,#06B6D4);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.section{padding:6rem 0;position:relative}
+.section-label{font-family:var(--fd);font-size:.9rem;letter-spacing:4px;color:var(--acc);text-transform:uppercase;margin-bottom:.75rem}
+.section-title{font-family:var(--fd);font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:2px;line-height:1.1;margin-bottom:1.5rem}
+.section-sub{color:var(--t2);font-size:1.05rem;max-width:600px;line-height:1.7}
+.icon{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.icon-lg{width:32px;height:32px}
+.tag{padding:.35rem .85rem;background:var(--acc-dim);color:var(--acc);border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:.5px;backdrop-filter:blur(4px)}
+.glow{background:var(--g1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glow2{background:var(--g2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glass{background:rgba(8,11,18,.92);backdrop-filter:blur(20px);border:1px solid var(--bdr);border-radius:16px}
+.glass:hover{border-color:var(--bdr-g)}
+.card-3d{transition:transform .4s,box-shadow .4s}
+.card-3d:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(2deg) translateY(-6px);box-shadow:0 25px 60px rgba(245,158,11,.08),0 0 40px rgba(245,158,11,.04)}
+
+/* Video background sections */
+.video-section{position:relative;overflow:hidden}
+.video-bg{position:absolute;inset:0;z-index:0}
+.video-bg video{width:100%;height:100%;object-fit:cover}
+.video-overlay{position:absolute;inset:0;z-index:1}
+.video-section>.container,.video-section>.section-inner{position:relative;z-index:2}
+
+/* Lang */
+.lang-toggle{position:fixed;top:1.5rem;right:1.5rem;z-index:1000;display:flex;border-radius:6px;overflow:hidden;border:1px solid var(--bdr);backdrop-filter:blur(12px);background:rgba(8,11,18,.85)}
+.lang-btn{padding:.5rem 1rem;font-family:var(--fd);font-size:.85rem;letter-spacing:2px;border:none;cursor:pointer;background:transparent;color:var(--t3);transition:all .3s}
+.lang-btn.active{background:var(--acc);color:var(--bg)}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.25rem 0;transition:all .4s}
+nav.scrolled{background:rgba(8,11,18,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:.75rem 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:var(--fd);font-size:1.5rem;letter-spacing:3px;text-decoration:none}
+.nav-logo .m{color:var(--t1)}.nav-logo .k{color:var(--acc)}.nav-logo .dot{color:var(--cyan)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--t2);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.5px;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--g1);transition:width .3s}
+.nav-links a:hover{color:var(--t1)}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--t1);transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+#particles-canvas{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero .video-bg video{filter:brightness(.35) saturate(1.2)}
+.hero .video-overlay{background:linear-gradient(135deg,rgba(8,11,18,.88) 0%,rgba(8,11,18,.5) 40%,rgba(8,11,18,.75) 100%);z-index:1}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),var(--cyan),transparent);z-index:3;animation:shimmer 3s ease infinite}
+@keyframes shimmer{0%,100%{opacity:.6}50%{opacity:1}}
+.hero .container{position:relative;z-index:3}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
+.hero h1{font-family:var(--fd);font-size:clamp(2.8rem,6.5vw,5rem);line-height:.95;letter-spacing:3px;margin-bottom:1.5rem}
+.hero-sub{font-size:1.1rem;color:var(--t2);max-width:540px;margin-bottom:2rem;line-height:1.75}
+.hero-proof{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-proof-item{display:flex;align-items:baseline;gap:.5rem}
+.hero-proof-number{font-family:var(--fd);font-size:2.2rem;line-height:1}
+.hero-proof-label{font-size:.78rem;color:var(--t3);max-width:100px;line-height:1.3}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-family:var(--fb);font-size:.9rem;font-weight:600;border-radius:8px;text-decoration:none;transition:all .3s;cursor:pointer;border:none;position:relative}
+.btn-primary{background:var(--g1);color:#000;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-100%);transition:transform .5s}
+.btn-primary:hover::before{transform:translateX(100%)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--acc-glow)}
+.btn-outline{background:transparent;color:var(--t1);border:1px solid var(--bdr)}
+.btn-outline:hover{border-color:var(--acc);color:var(--acc)}
+
+/* Hero panel */
+.hero-position{padding:2.25rem;position:relative;overflow:hidden;background:#0a0e17;border-radius:16px}
+.gradient-border{position:relative;border:1px solid rgba(245,158,11,.25);border-radius:16px}
+.hero-position h3{font-family:var(--fd);font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem}
+.hero-position p{color:var(--t2);font-size:.9rem;line-height:1.7;margin-bottom:1rem}
+.hero-position-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--bdr)}
+.hero-indicators{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:4}
+.hero-indicators button{width:32px;height:3px;border:none;border-radius:2px;background:rgba(255,255,255,.2);cursor:pointer;transition:all .4s;padding:0}
+.hero-indicators button.active{background:var(--acc);width:48px;box-shadow:0 0 10px var(--acc-glow)}
+
+/* Orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:float 8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(20px,-30px) scale(1.05)}50%{transform:translate(-10px,20px) scale(.95)}75%{transform:translate(15px,10px) scale(1.02)}}
+
+/* ===== CLIENT LOGOS ===== */
+.logo-bar{padding:3rem 0;background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);overflow:hidden;position:relative}
+.logo-bar-label{text-align:center;font-family:var(--fd);font-size:.8rem;letter-spacing:3px;color:var(--t3);text-transform:uppercase;margin-bottom:1.5rem}
+.logo-track{display:flex;animation:scrollLogos 25s linear infinite;width:max-content}
+.logo-track:hover{animation-play-state:paused}
+.logo-item{display:flex;align-items:center;justify-content:center;padding:0 2.5rem;flex-shrink:0;height:50px}
+.logo-item svg{height:28px;width:auto;opacity:.5;transition:opacity .3s;filter:grayscale(1) brightness(2)}
+.logo-item:hover svg{opacity:1;filter:grayscale(0) brightness(1)}
+.logo-text{font-family:var(--fd);font-size:1.4rem;letter-spacing:3px;color:var(--t3);opacity:.5;transition:opacity .3s;white-space:nowrap}
+.logo-item:hover .logo-text{opacity:1;color:var(--t1)}
+@keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== IMPACT — CYBER SECTION ===== */
+.impact-section{position:relative;overflow:hidden;padding:5rem 0}
+.impact-section .video-bg video{filter:brightness(.2) saturate(1.5) hue-rotate(10deg)}
+.impact-section .video-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(8,11,18,.7) 15%,rgba(6,182,212,.05) 50%,rgba(8,11,18,.7) 85%,var(--bg2) 100%)}
+.impact-section .container{position:relative;z-index:2}
+.cyber-grid-bg{position:absolute;inset:0;z-index:1;overflow:hidden;opacity:.15}
+.cyber-line{position:absolute;background:var(--cyan);opacity:.3}
+.cyber-line.h{height:1px;width:100%;animation:scanH 4s linear infinite}
+.cyber-line.v{width:1px;height:100%;animation:scanV 5s linear infinite}
+@keyframes scanH{0%{transform:translateY(-100vh)}100%{transform:translateY(100vh)}}
+@keyframes scanV{0%{transform:translateX(-100vw)}100%{transform:translateX(100vw)}}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.impact-card{padding:2rem;border-radius:16px;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.1);backdrop-filter:blur(10px);transition:all .4s}
+.impact-card:hover{border-color:rgba(6,182,212,.3);box-shadow:0 0 40px rgba(6,182,212,.1);transform:translateY(-4px)}
+.impact-number{font-family:var(--fd);font-size:clamp(2rem,4vw,3.2rem);line-height:1}
+.impact-label{font-size:.82rem;color:var(--t2);margin-top:.5rem}
+.impact-context{font-size:.72rem;color:var(--t3);margin-top:.25rem}
+.impact-title{text-align:center;margin-bottom:3rem}
+.impact-title h2{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);letter-spacing:3px}
+
+/* ===== ABOUT ===== */
+.about-section{position:relative;overflow:hidden}
+.about-section .video-bg video{filter:brightness(.15) saturate(1.3)}
+.about-section .video-overlay{background:linear-gradient(180deg,var(--bg2) 0%,rgba(8,11,18,.85) 15%,rgba(8,11,18,.85) 85%,var(--bg2) 100%)}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start}
+.about-text p{color:var(--t2);margin-bottom:1.25rem;font-size:1.02rem;line-height:1.75}
+.about-text strong{color:var(--t1)}
+.about-highlights{display:flex;flex-direction:column;gap:1.25rem}
+.highlight-card{padding:1.5rem 1.75rem;display:flex;align-items:flex-start;gap:1.25rem;transition:all .4s}
+.highlight-icon{width:46px;height:46px;background:var(--acc-dim);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--acc);flex-shrink:0;transition:all .3s}
+.highlight-card:hover .highlight-icon{background:var(--acc);color:#000;box-shadow:0 0 20px var(--acc-glow)}
+.highlight-card h4{font-size:.95rem;font-weight:600;margin-bottom:.25rem}
+.highlight-card p{font-size:.85rem;color:var(--t3);line-height:1.5}
+
+/* ===== SERVICES ===== */
+.services-section{background:var(--bg2);position:relative;overflow:hidden}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.service-card{padding:2.25rem;transition:all .4s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--g1);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:48px;height:48px;background:var(--acc-dim);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--acc);margin-bottom:1.25rem;transition:all .3s}
+.service-card:hover .service-icon{background:var(--acc);color:#000;box-shadow:0 0 30px var(--acc-glow)}
+.service-card h3{font-size:1.05rem;font-weight:700;margin-bottom:.75rem}
+.service-card p{color:var(--t3);font-size:.86rem;line-height:1.65}
+
+/* ===== PHOTO/VIDEO DIVIDER ===== */
+.vid-divider{height:450px;position:relative;overflow:hidden}
+.vid-divider video{width:100%;height:100%;object-fit:cover;filter:brightness(.35) saturate(1.3)}
+.vid-divider-overlay{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg2) 0%,rgba(0,0,0,.1) 25%,rgba(0,0,0,.1) 75%,var(--bg) 100%)}
+.vid-divider-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;flex-direction:column}
+.divider-counter{font-family:var(--fd);font-size:clamp(3rem,8vw,6rem);letter-spacing:4px;background:var(--g1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 30px rgba(245,158,11,.3))}
+.divider-sub{font-family:var(--fd);font-size:clamp(1.2rem,3vw,2rem);letter-spacing:4px;color:var(--t1);text-shadow:0 2px 20px rgba(0,0,0,.5)}
+
+/* ===== PROJECTS ===== */
+.projects-section{position:relative;overflow:hidden}
+.projects-section .video-bg video{filter:brightness(.12) saturate(1.2)}
+.projects-section .video-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(8,11,18,.88) 10%,rgba(8,11,18,.88) 90%,var(--bg2) 100%)}
+.projects-timeline{margin-top:3rem;position:relative}
+.projects-timeline::before{content:'';position:absolute;top:0;bottom:0;left:24px;width:2px;background:linear-gradient(180deg,var(--acc),var(--cyan),var(--em),var(--bdr))}
+.project-item{display:flex;gap:2.5rem;margin-bottom:2.5rem;position:relative}
+.project-dot{width:50px;height:50px;background:var(--bg);border:2px solid var(--acc);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--acc);flex-shrink:0;position:relative;z-index:1;transition:all .3s}
+.project-item:hover .project-dot{box-shadow:0 0 20px var(--acc-glow)}
+.project-content{padding:2rem;flex:1;transition:all .4s}
+.project-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem}
+.project-period{font-size:.78rem;color:var(--acc);font-weight:600;letter-spacing:.5px}
+.project-client{font-size:.75rem;color:var(--t3);padding:.2rem .7rem;background:var(--acc-dim);border-radius:50px}
+.project-content h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+.project-content>p{color:var(--t3);font-size:.88rem;line-height:1.65}
+.project-results{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--bdr)}
+.project-results li{color:var(--t2);font-size:.84rem;line-height:1.6;margin-bottom:.35rem;padding-left:1rem;position:relative;list-style:none}
+.project-results li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.project-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.project-tags .tag{font-size:.7rem}
+
+/* ===== SOCIAL PROOF ===== */
+.proof-section{background:var(--bg2)}
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.proof-card{padding:2rem;position:relative}
+.proof-card::before{content:'\201C';font-family:var(--fd);font-size:4rem;position:absolute;top:.5rem;left:1.25rem;line-height:1;background:var(--g1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.4}
+.proof-quote{color:var(--t2);font-size:.92rem;line-height:1.7;font-style:italic;margin-bottom:1.25rem;padding-top:1.5rem}
+.proof-author{display:flex;align-items:center;gap:.75rem}
+.proof-avatar{width:40px;height:40px;border-radius:50%;background:var(--g1);display:flex;align-items:center;justify-content:center;color:#000;font-family:var(--fd);font-size:1rem;font-weight:700}
+.proof-name{font-size:.85rem;font-weight:600}
+.proof-role{font-size:.75rem;color:var(--t3)}
+
+/* ===== ENGAGEMENT ===== */
+.engage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.engage-card{padding:2rem;text-align:center;transition:all .4s}
+.engage-icon{width:56px;height:56px;margin:0 auto 1rem;background:var(--acc-dim);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--acc);transition:all .3s}
+.engage-card:hover .engage-icon{background:var(--acc);color:#000;box-shadow:0 0 25px var(--acc-glow)}
+.engage-card h4{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.engage-card p{color:var(--t3);font-size:.84rem;line-height:1.6}
+
+/* ===== CONTACT ===== */
+.contact-section{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem}
+.contact-item{display:flex;align-items:center;gap:1rem}
+.contact-icon{width:48px;height:48px;background:var(--acc-dim);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--acc);flex-shrink:0;transition:all .3s}
+.contact-item:hover .contact-icon{background:var(--acc);color:#000;box-shadow:0 0 20px var(--acc-glow)}
+.contact-item h4{font-size:.9rem;font-weight:600}
+.contact-item p{color:var(--t3);font-size:.88rem}
+.contact-item a{color:var(--acc);text-decoration:none;font-size:.88rem}
+.contact-item a:hover{text-decoration:underline}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-group input,.form-group textarea{width:100%;padding:.9rem 1.25rem;background:rgba(14,18,25,.6);backdrop-filter:blur(8px);border:1px solid var(--bdr);border-radius:8px;color:var(--t1);font-family:var(--fb);font-size:.9rem;transition:all .3s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 15px rgba(245,158,11,.1)}
+.form-group textarea{resize:vertical;min-height:120px}
+
+footer{padding:3rem 0;border-top:1px solid var(--bdr);text-align:center}
+footer p{color:var(--t3);font-size:.82rem}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:968px){
+  .hero-grid{grid-template-columns:1fr}.hero-visual{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .services-grid,.engage-grid{grid-template-columns:1fr 1fr}
+  .proof-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}.hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(8,11,18,.96);backdrop-filter:blur(20px);padding:2rem;gap:1.5rem;border-bottom:1px solid var(--bdr)}
+  .vid-divider{height:300px}
+}
+@media(max-width:640px){
+  .services-grid,.engage-grid{grid-template-columns:1fr}.section{padding:4rem 0}.container{padding:0 1.25rem}
+  .projects-timeline::before{left:20px}.project-dot{width:42px;height:42px}.project-item{gap:1.5rem}
+  .vid-divider{height:220px}.hero-proof{gap:1.5rem}
+  .impact-grid{grid-template-columns:1fr 1fr}
+}
+[data-lang="en"] .nl,[data-lang="nl"] .en{display:none}
+</style>
+</head>
+<body data-lang="nl">
+
+<div class="lang-toggle"><button class="lang-btn active" onclick="setLang('nl')">NL</button><button class="lang-btn" onclick="setLang('en')">EN</button></div>
+
+<nav id="navbar"><div class="container">
+  <a href="#" class="nav-logo"><span class="m">M</span><span class="k">K</span><span class="dot">.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about"><span class="nl">Over mij</span><span class="en">About</span></a></li>
+    <li><a href="#services"><span class="nl">Diensten</span><span class="en">Services</span></a></li>
+    <li><a href="#projects"><span class="nl">Projecten</span><span class="en">Projects</span></a></li>
+    <li><a href="#engagement"><span class="nl">Samenwerken</span><span class="en">Engagement</span></a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</div></nav>
+
+<!-- ===== HERO — Construction video ===== -->
+<section class="hero video-section">
+  <canvas id="particles-canvas"></canvas>
+  <div class="video-bg">
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80">
+      <source src="https://videos.pexels.com/video-files/2491284/2491284-uhd_2560_1440_24fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="video-overlay" style="background:linear-gradient(135deg,rgba(8,11,18,.9) 0%,rgba(8,11,18,.55) 40%,rgba(8,11,18,.78) 100%)"></div>
+  <div class="orb" style="width:300px;height:300px;background:rgba(245,158,11,.06);top:20%;right:10%"></div>
+  <div class="orb" style="width:250px;height:250px;background:rgba(6,182,212,.05);bottom:20%;left:5%;animation-delay:-3s"></div>
+  <div class="hero-bottom"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1><span class="nl">DE <span class="glow">HSE-SPECIALIST</span><br>VOOR DE<br>ENERGIETRANSITIE</span><span class="en">THE <span class="glow">HSE SPECIALIST</span><br>FOR THE<br>ENERGY TRANSITION</span></h1>
+        <p class="hero-sub"><span class="nl">Ik help opdrachtgevers in waterstof, CCS en energie-infrastructuur om complexe projecten veilig en op schema te houden — met praktisch inzicht vanuit de GWW en een pragmatische instelling op de werkvloer.</span><span class="en">I help clients in hydrogen, CCS and energy infrastructure keep complex projects safe and on schedule — with practical insight from civil engineering and a pragmatic approach on the workfloor.</span></p>
+        <div class="hero-proof">
+          <div class="hero-proof-item"><div class="hero-proof-number glow">5M+</div><div class="hero-proof-label"><span class="nl">LTI-vrije uren totaal</span><span class="en">Total LTI-free hours</span></div></div>
+          <div class="hero-proof-item"><div class="hero-proof-number glow2">7.500+</div><div class="hero-proof-label"><span class="nl">Veiligheids-observaties</span><span class="en">Safety observations</span></div></div>
+          <div class="hero-proof-item"><div class="hero-proof-number glow">€3mld+</div><div class="hero-proof-label"><span class="nl">Projectwaarde begeleid</span><span class="en">Project value supervised</span></div></div>
+        </div>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="nl">Neem contact op</span><span class="en">Get in touch</span></a>
+          <a href="#projects" class="btn btn-outline"><svg class="icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg><span class="nl">Bekijk track record</span><span class="en">View track record</span></a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-position glass gradient-border">
+          <h3 class="glow"><span class="nl">WAAROM METECAN?</span><span class="en">WHY METECAN?</span></h3>
+          <p class="nl">Een van de weinige ZZP HSE-professionals in Nederland met directe hands-on ervaring op waterstofproductie (Shell HH1), CO₂-opslag (Porthos) én warmteinfrastructuur — gecombineerd met een GWW-achtergrond die praktisch inzicht geeft dat office-based veiligheidskundigen missen.</p>
+          <p class="en">One of the few independent HSE professionals in the Netherlands with direct hands-on experience across hydrogen production (Shell HH1), CO₂ storage (Porthos), and heat infrastructure — combined with a civil engineering background providing practical insight office-based safety professionals lack.</p>
+          <div class="hero-position-tags"><span class="tag">Waterstof</span><span class="tag">CCS/CO₂</span><span class="tag">Warmtenetten</span><span class="tag">SIMOPS</span><span class="tag">PTW/LOTO</span><span class="tag">GWW</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENT LOGOS ===== -->
+<div class="logo-bar">
+  <div class="logo-bar-label"><span class="nl">Vertrouwd door toonaangevende opdrachtgevers</span><span class="en">Trusted by leading clients</span></div>
+  <div class="logo-track" id="logoTrack">
+    <div class="logo-item"><span class="logo-text">SHELL</span></div>
+    <div class="logo-item"><span class="logo-text">PORTHOS</span></div>
+    <div class="logo-item"><span class="logo-text">BALLAST NEDAM</span></div>
+    <div class="logo-item"><span class="logo-text">DURA VERMEER</span></div>
+    <div class="logo-item"><span class="logo-text">ZÜBLIN</span></div>
+    <div class="logo-item"><span class="logo-text">NESTLÉ</span></div>
+    <div class="logo-item"><span class="logo-text">A. DE REUS</span></div>
+    <div class="logo-item"><span class="logo-text">SHELL</span></div>
+    <div class="logo-item"><span class="logo-text">PORTHOS</span></div>
+    <div class="logo-item"><span class="logo-text">BALLAST NEDAM</span></div>
+    <div class="logo-item"><span class="logo-text">DURA VERMEER</span></div>
+    <div class="logo-item"><span class="logo-text">ZÜBLIN</span></div>
+    <div class="logo-item"><span class="logo-text">NESTLÉ</span></div>
+    <div class="logo-item"><span class="logo-text">A. DE REUS</span></div>
+  </div>
+</div>
+
+<!-- ===== IMPACT — CYBER DATA SECTION ===== -->
+<section class="impact-section video-section">
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/3130284/3130284-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="video-overlay" style="background:linear-gradient(180deg,var(--bg) 0%,rgba(6,182,212,.06) 30%,rgba(6,182,212,.06) 70%,var(--bg2) 100%)"></div>
+  <div class="cyber-grid-bg"><div class="cyber-line h" style="top:30%"></div><div class="cyber-line h" style="top:60%;animation-delay:-2s"></div><div class="cyber-line v" style="left:25%;animation-delay:-1s"></div><div class="cyber-line v" style="left:75%;animation-delay:-3s"></div></div>
+  <div class="container">
+    <div class="impact-title fade-in"><span class="section-label" style="text-align:center;display:block"><span class="nl">Bewezen resultaten</span><span class="en">Proven results</span></span><h2><span class="nl"><span class="glow2">DATA-GEDREVEN</span> VEILIGHEID</span><span class="en"><span class="glow2">DATA-DRIVEN</span> SAFETY</span></h2></div>
+    <div class="impact-grid">
+      <div class="impact-card fade-in"><div class="impact-number glow">5M+</div><div class="impact-label"><span class="nl">LTI-vrije uren totaal</span><span class="en">Total LTI-free hours</span></div><div class="impact-context"><span class="nl">Alle projecten gecombineerd</span><span class="en">All projects combined</span></div></div>
+      <div class="impact-card fade-in"><div class="impact-number glow2">1.7M+</div><div class="impact-label"><span class="nl">LTI-vrij op HH1</span><span class="en">LTI-free on HH1</span></div><div class="impact-context"><span class="nl">Op weg naar 2 miljoen</span><span class="en">Heading towards 2 million</span></div></div>
+      <div class="impact-card fade-in"><div class="impact-number glow">7.500+</div><div class="impact-label"><span class="nl">Observaties</span><span class="en">Observations</span></div><div class="impact-context"><span class="nl">Geanalyseerd & vertaald</span><span class="en">Analyzed & translated</span></div></div>
+      <div class="impact-card fade-in"><div class="impact-number glow2">€3 mld+</div><div class="impact-label"><span class="nl">Projectwaarde</span><span class="en">Project value</span></div><div class="impact-context"><span class="nl">Begeleid als HSE-specialist</span><span class="en">Supervised as HSE specialist</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT — Welding/industrial video ===== -->
+<section class="section about-section video-section" id="about">
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/5532773/5532773-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="video-overlay" style="background:linear-gradient(180deg,var(--bg2) 0%,rgba(8,11,18,.88) 10%,rgba(8,11,18,.88) 90%,var(--bg2) 100%)"></div>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <span class="section-label"><span class="nl">Positionering</span><span class="en">Positioning</span></span>
+        <h2 class="section-title"><span class="nl">VELD-ERVARING,<br><span class="glow">GEEN THEORIE</span></span><span class="en">FIELD EXPERIENCE,<br><span class="glow">NOT THEORY</span></span></h2>
+        <p class="nl">Ik ben Metecan Kaya. Voordat ik in HSE terechtkwam, werkte ik als <strong>DLP'er en voorman in de GWW</strong> — ik heb zelf leidingen gelegd, gegraven en gecoördineerd. Die achtergrond maakt het verschil: ik begrijp wat een lasser, monteur of grondwerker tegenkomt, omdat ik in hun schoenen heb gestaan.</p>
+        <p class="en">I'm Metecan Kaya. Before I moved into HSE, I worked as a <strong>site foreman in civil engineering</strong> — I've laid pipes, dug trenches and coordinated crews myself. That background makes the difference.</p>
+        <p class="nl">Die combinatie van <strong>praktisch veld-inzicht</strong> en <strong>veiligheidskundige expertise</strong> is schaars. Ik sta naast de uitvoering, signaleer risico's voordat ze escaleren, en vertaal complexe eisen naar werkbare oplossingen.</p>
+        <p class="en">That combination of <strong>practical field insight</strong> and <strong>safety expertise</strong> is rare. I stand alongside execution, identify risks before they escalate, and translate complex requirements into workable solutions.</p>
+        <p class="nl">Mijn specialisatie: de <strong>Nederlandse energietransitie</strong>. Projecten waar constructie en commissioning tegelijk plaatsvinden, waar SIMOPS het dagelijks werk bepalen, en waar één fout met stikstof, ammoniak of KOH het verschil maakt.</p>
+        <p class="en">My specialization: the <strong>Dutch energy transition</strong>. Projects where construction and commissioning run simultaneously, where SIMOPS define daily work, and where one mistake with nitrogen, ammonia or KOH makes all the difference.</p>
+      </div>
+      <div class="about-highlights fade-in">
+        <div class="highlight-card glass card-3d"><div class="highlight-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4><span class="nl">SIMOPS-begeleiding</span><span class="en">SIMOPS Management</span></h4><p class="nl">Coördinatie van gelijktijdige constructie- en commissioning-activiteiten met gevaarlijke stoffen.</p><p class="en">Coordination of simultaneous construction and commissioning with hazardous substances.</p></div></div>
+        <div class="highlight-card glass card-3d"><div class="highlight-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><h4>PTW & LOTO/ICC</h4><p class="nl">Dagelijkse beoordeling en uitgifte van werkvergunningen op Shell-niveau.</p><p class="en">Daily permit assessment and issuing at Shell standard.</p></div></div>
+        <div class="highlight-card glass card-3d"><div class="highlight-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><h4><span class="nl">Data-gedreven veiligheid</span><span class="en">Data-driven safety</span></h4><p class="nl">7.500+ observaties geanalyseerd en vertaald naar concrete verbetermaatregelen.</p><p class="en">7,500+ observations analyzed and translated into improvement measures.</p></div></div>
+        <div class="highlight-card glass card-3d"><div class="highlight-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><h4><span class="nl">BHV-Ploegleider</span><span class="en">Emergency Response Lead</span></h4><p class="nl">Coördinatie en besluitvorming tijdens noodsituaties voor 100+ medewerkers.</p><p class="en">Coordination and decision-making during emergencies for 100+ workers.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="fade-in"><span class="section-label"><span class="nl">Diensten</span><span class="en">Services</span></span><h2 class="section-title"><span class="nl">WAT IK <span class="glow">OPLEVER</span></span><span class="en">WHAT I <span class="glow">DELIVER</span></span></h2><p class="section-sub nl">Geen generieke consultancy — concrete ondersteuning die direct waarde toevoegt.</p><p class="section-sub en">Not generic consultancy — concrete support that directly adds value.</p></div>
+    <div class="services-grid">
+      <div class="service-card glass card-3d fade-in"><div class="service-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3><span class="nl">HSE Supervisie op Site</span><span class="en">On-site HSE Supervision</span></h3><p class="nl">Dagelijks op de werkvloer. Inspecties, toolbox talks, coaching. Niet vanachter het bureau.</p><p class="en">On the workfloor daily. Inspections, toolbox talks, coaching. Not from behind a desk.</p></div>
+      <div class="service-card glass card-3d fade-in"><div class="service-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3><span class="nl">PTW & Vergunningenbeheer</span><span class="en">PTW & Permit Management</span></h3><p class="nl">TRA-toetsing, LOTO/ICC, scopeanalyse en reddingsplannen — op Shell-standaard.</p><p class="en">TRA review, LOTO/ICC, scope analysis and rescue plans — at Shell standard.</p></div>
+      <div class="service-card glass card-3d fade-in"><div class="service-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3><span class="nl">Incidentonderzoek & CAPA</span><span class="en">Incident Investigation & CAPA</span></h3><p class="nl">5xWhy met barrière-analyse, evidence-backed rapportage en effectiviteitsverificatie.</p><p class="en">5xWhy with barrier analysis, evidence-backed reporting and effectiveness verification.</p></div>
+      <div class="service-card glass card-3d fade-in"><div class="service-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div><h3><span class="nl">Observaties & KPI-rapportage</span><span class="en">Observations & KPI Reporting</span></h3><p class="nl">Data-analyse, trendidentificatie en managementrapportages die tot actie leiden.</p><p class="en">Data analysis, trend identification and management reports that drive action.</p></div>
+      <div class="service-card glass card-3d fade-in"><div class="service-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3><span class="nl">SIMOPS-coördinatie</span><span class="en">SIMOPS Coordination</span></h3><p class="nl">Constructie en commissioning veilig laten samenlopen. Discipline-afstemming.</p><p class="en">Safely running construction and commissioning in parallel. Cross-discipline alignment.</p></div>
+      <div class="service-card glass card-3d fade-in"><div class="service-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3><span class="nl">Training & Veiligheidscultuur</span><span class="en">Training & Safety Culture</span></h3><p class="nl">LOTO/ICC-trainingen, toolboxen — van timmerman tot engineer.</p><p class="en">LOTO/ICC training, toolboxes — from carpenter to engineer.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO DIVIDER — Counter ===== -->
+<div class="vid-divider">
+  <video autoplay muted loop playsinline><source src="https://videos.pexels.com/video-files/3191572/3191572-uhd_2560_1440_25fps.mp4" type="video/mp4"></video>
+  <div class="vid-divider-overlay"></div>
+  <div class="vid-divider-text">
+    <div class="divider-counter" id="counter">0</div>
+    <div class="divider-sub"><span class="nl">LTI-VRIJE UREN — EN COUNTING</span><span class="en">LTI-FREE HOURS — AND COUNTING</span></div>
+  </div>
+</div>
+
+<!-- ===== PROJECTS — Safety/industrial video ===== -->
+<section class="section projects-section video-section" id="projects">
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/5532764/5532764-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="video-overlay" style="background:linear-gradient(180deg,var(--bg) 0%,rgba(8,11,18,.9) 8%,rgba(8,11,18,.9) 92%,var(--bg2) 100%)"></div>
+  <div class="container">
+    <div class="fade-in"><span class="section-label">TRACK RECORD</span><h2 class="section-title"><span class="nl">RESULTATEN,<br><span class="glow">GEEN FUNCTIETITELS</span></span><span class="en">RESULTS,<br><span class="glow">NOT JOB TITLES</span></span></h2></div>
+    <div class="projects-timeline">
+      <div class="project-item fade-in"><div class="project-dot"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="project-content glass card-3d"><div class="project-meta"><span class="project-period">2025 — <span class="nl">heden</span><span class="en">present</span></span><span class="project-client">Shell — €1 mld</span></div><h3>Holland Hydrogen 1 — HSE & PTW Supervisor</h3><p class="nl">Europa's grootste groene waterstoffabriek (250 MW). Constructie en commissioning gelijktijdig — met N₂, NH₃, KOH en H₂ op site.</p><p class="en">Europe's largest green hydrogen plant (250 MW). Construction and commissioning simultaneously — with N₂, NH₃, KOH and H₂ on site.</p><ul class="project-results"><li class="nl">1.7 miljoen+ LTI-vrije uren behaald, op weg naar 2 miljoen</li><li class="en">1.7 million+ LTI-free hours achieved, heading towards 2 million</li><li class="nl">SIMOPS-coördinatie: constructie en CSU veilig laten samenlopen</li><li class="en">SIMOPS coordination: safely running construction and CSU in parallel</li><li class="nl">BHV-ploegleider voor 100+ medewerkers</li><li class="en">Emergency Response Team Lead for 100+ workers</li><li class="nl">LOTO/ICC-trainingen ontwikkeld voor constructiepersoneel</li><li class="en">LOTO/ICC training developed for construction workers</li></ul><div class="project-tags"><span class="tag">H₂</span><span class="tag">SIMOPS</span><span class="tag">PTW</span><span class="tag">LOTO/ICC</span><span class="tag">CSU</span></div></div></div>
+
+      <div class="project-item fade-in"><div class="project-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><div class="project-content glass card-3d"><div class="project-meta"><span class="project-period">2025</span><span class="project-client">ZÜBLIN / Porthos</span></div><h3>Porthos CO₂ Opslag — HSE-coördinator</h3><p class="nl">Vervanging van uitgevallen HSE-coördinator én HSE-manager op strategisch CCS-project.</p><p class="en">Replacement for both HSE coordinator and HSE manager on strategic CCS project.</p><ul class="project-results"><li class="nl">Binnen enkele dagen volledig operationeel</li><li class="en">Fully operational within days</li></ul><div class="project-tags"><span class="tag">CCS</span><span class="tag">CO₂</span><span class="tag">Offshore</span></div></div></div>
+
+      <div class="project-item fade-in"><div class="project-dot"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="project-content glass card-3d"><div class="project-meta"><span class="project-period">2024</span><span class="project-client">Dura Vermeer</span></div><h3 class="nl">13 Industriële Projecten — Veiligheidsadviseur</h3><h3 class="en">13 Industrial Projects — Safety Advisor</h3><p class="nl">SIF, TEPSA, LBC Terminal, Alco Energy, RWG Terminal, Aluchemie — simultaan begeleid.</p><p class="en">SIF, TEPSA, LBC Terminal, Alco Energy, RWG Terminal, Aluchemie — supervised simultaneously.</p><div class="project-tags"><span class="tag">Multi-site</span><span class="tag">Industrie</span><span class="tag">Haven</span></div></div></div>
+
+      <div class="project-item fade-in"><div class="project-dot"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><div class="project-content glass card-3d"><div class="project-meta"><span class="project-period">2023 — 2024</span><span class="project-client">Ballast Nedam / Shell — €2 mld</span></div><h3>RED2GREEN — HSE & PTW-coördinator</h3><p class="nl">Shell Pernis raffinaderij. Hoog-risico turnaround (€2 miljard) met meerdere contractors.</p><p class="en">Shell Pernis refinery. High-risk turnaround (€2 billion) with multiple contractors.</p><ul class="project-results"><li class="nl">PTW-proces geoptimaliseerd: kortere doorlooptijd, betere samenwerking</li><li class="en">PTW process optimized: shorter turnaround, better collaboration</li></ul><div class="project-tags"><span class="tag">Raffinaderij</span><span class="tag">Turnaround</span><span class="tag">PTW</span></div></div></div>
+
+      <div class="project-item fade-in"><div class="project-dot"><svg class="icon" viewBox="0 0 24 24"><rect x="1" y="6" width="22" height="12" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div class="project-content glass card-3d"><div class="project-meta"><span class="project-period">2019 — 2024</span><span class="project-client">A. de Reus / GWW</span></div><h3 class="nl">Civiele & Industriële Projecten — Voorman</h3><h3 class="en">Civil & Industrial Projects — Foreman</h3><p class="nl">Teams van 5-15 medewerkers op Shell Pernis, Gunvor en saneringsprojecten. Het fundament.</p><p class="en">Teams of 5-15 at Shell Pernis, Gunvor and remediation projects. The foundation.</p><div class="project-tags"><span class="tag">GWW</span><span class="tag">Civiel</span><span class="tag">Shell Pernis</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENGAGEMENT ===== -->
+<section class="section" id="engagement" style="background:var(--bg2)">
+  <div class="container">
+    <div class="fade-in"><span class="section-label"><span class="nl">Samenwerken</span><span class="en">Engagement</span></span><h2 class="section-title"><span class="nl">HOE IK <span class="glow">WERK</span></span><span class="en">HOW I <span class="glow">WORK</span></span></h2></div>
+    <div class="engage-grid">
+      <div class="engage-card glass card-3d fade-in"><div class="engage-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h4><span class="nl">Inzet</span><span class="en">Deployment</span></h4><p class="nl">Project- of dagbasis. Min. 3 maanden, 32-40 uur/week. Flexibel inzetbaar in Zuid-Holland.</p><p class="en">Project or daily basis. Min. 3 months, 32-40 hrs/week. Flexible in South Holland.</p></div>
+      <div class="engage-card glass card-3d fade-in"><div class="engage-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4><span class="nl">Certificeringen</span><span class="en">Certifications</span></h4><p class="nl">MVK · NEBOSH Diploma L6 (in opleiding) · VCA VOL · BHV-Ploegleider · PTW/LOTO · Rijbewijs B</p><p class="en">MVK · NEBOSH Diploma L6 (in progress) · VCA Full · ERT Lead · PTW/LOTO · License B</p></div>
+      <div class="engage-card glass card-3d fade-in"><div class="engage-icon"><svg class="icon-lg icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4><span class="nl">Werkwijze</span><span class="en">Approach</span></h4><p class="nl">Week 1: oriëntatie + gap-analyse. Dagelijks: veldrondes, vergunningen, coaching. Wekelijks: rapportage.</p><p class="en">Week 1: orientation + gap analysis. Daily: field rounds, permits, coaching. Weekly: reporting.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="fade-in"><span class="section-label">Contact</span><h2 class="section-title"><span class="nl">LATEN WE <span class="glow">PRATEN</span></span><span class="en">LET'S <span class="glow">TALK</span></span></h2></div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <div class="contact-item"><div class="contact-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4><span class="nl">Locatie</span><span class="en">Location</span></h4><p>Naaldwijk, Zuid-Holland</p></div></div>
+        <div class="contact-item"><div class="contact-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4>E-mail</h4><a href="mailto:info@prediqtsafe.com">info@prediqtsafe.com</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><h4><span class="nl">Telefoon</span><span class="en">Phone</span></h4><a href="tel:+31648822273">06 48 82 22 73</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/metecan-kaya-964470239" target="_blank">Metecan Kaya</a></div></div>
+      </div>
+      <form class="contact-form fade-in" onsubmit="event.preventDefault();">
+        <div class="form-group"><input type="text" placeholder="Naam / Name" required></div>
+        <div class="form-group"><input type="email" placeholder="E-mail" required></div>
+        <div class="form-group"><input type="text" placeholder="Bedrijf / Company"></div>
+        <div class="form-group"><textarea placeholder="Vertel me over uw project / Tell me about your project" required></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><svg class="icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span class="nl">Verstuur bericht</span><span class="en">Send message</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><p>&copy; 2026 Metecan Kaya — HSE Specialist Energietransitie &nbsp;|&nbsp; www.MTKSafety.nl</p><p style="color:var(--t3);font-size:.75rem;margin-top:.5rem">KVK: 75113589 &nbsp;|&nbsp; BTW: NL0024.46.988.B61</p></div></footer>
+
+<script>
+// === PARTICLES ===
+const canvas=document.getElementById('particles-canvas');const ctx=canvas.getContext('2d');let particles=[];
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+window.addEventListener('resize',resizeCanvas);resizeCanvas();
+class Particle{constructor(){this.reset()}reset(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+.5;this.speedX=(Math.random()-.5)*.3;this.speedY=(Math.random()-.5)*.3;this.opacity=Math.random()*.4+.1;this.color=Math.random()>.5?'245,158,11':'6,182,212'}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=`rgba(${this.color},${this.opacity})`;ctx.fill()}}
+for(let i=0;i<50;i++)particles.push(new Particle());
+function drawLines(){for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(245,158,11,${.06*(1-dist/150)})`;ctx.lineWidth=.5;ctx.stroke()}}}
+function animP(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animP)}
+animP();
+
+// === LANG ===
+function setLang(l){document.body.setAttribute('data-lang',l);document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`.lang-btn[onclick="setLang('${l}')"]`).classList.add('active')}
+
+// === NAV ===
+const nav=document.getElementById('navbar');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+// === COUNTER ===
+let counterDone=false;
+function animateCounter(){if(counterDone)return;const el=document.getElementById('counter');if(!el)return;const r=el.getBoundingClientRect();if(r.top<window.innerHeight*.85){counterDone=true;const target=5000000,dur=3000,start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3),v=Math.floor(e*target);el.textContent=v.toLocaleString('nl-NL')+'+';if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}}
+window.addEventListener('scroll',animateCounter);
+
+// === SCROLL ANIMATIONS ===
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80)})},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
